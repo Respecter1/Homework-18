@@ -1,5 +1,5 @@
 /*
-	8. Виправте лістинг, наведений у вправі 7, та відкомпілюйте його.
+	8. Р’РёРїСЂР°РІС‚Рµ Р»С–СЃС‚РёРЅРі, РЅР°РІРµРґРµРЅРёР№ Сѓ РІРїСЂР°РІС– 7, С‚Р° РІС–РґРєРѕРјРїС–Р»СЋР№С‚Рµ Р№РѕРіРѕ.
 */
 
 #include <iostream>
@@ -9,20 +9,20 @@ using namespace std;
 
 class Animal
 {
-	friend void setValue(Animal&, int);//і яби цю функцію в классі писав вона дуже коротка 
-	friend void setValue(Animal&, int,int);//і яби цю функцію в классі писав вона дуже коротка 
+	friend void setValue(Animal&, int);//С– СЏР±Рё С†СЋ С„СѓРЅРєС†С–СЋ РІ РєР»Р°СЃСЃС– РїРёСЃР°РІ РІРѕРЅР° РґСѓР¶Рµ РєРѕСЂРѕС‚РєР° 
+	friend void setValue(Animal&, int,int);//С– СЏР±Рё С†СЋ С„СѓРЅРєС†С–СЋ РІ РєР»Р°СЃСЃС– РїРёСЃР°РІ РІРѕРЅР° РґСѓР¶Рµ РєРѕСЂРѕС‚РєР° 
 
 private:
 	int itsWeight;
 	int itsAge;
 };
 
-void setValue(Animal& theAnimal, int theWeight)//вага тварини
+void setValue(Animal& theAnimal, int theWeight)//РІР°РіР° С‚РІР°СЂРёРЅРё
 {
 	theAnimal.itsWeight = theWeight;
 }
 
-void setValue(Animal& theAnimal, int theWeight, int theAge)//вага та вік тварини
+void setValue(Animal& theAnimal, int theWeight, int theAge)//РІР°РіР° С‚Р° РІС–Рє С‚РІР°СЂРёРЅРё
 {
 	theAnimal.itsWeight = theWeight;
 	theAnimal.itsAge = theAge;
