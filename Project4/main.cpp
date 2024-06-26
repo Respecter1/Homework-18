@@ -1,5 +1,5 @@
 /*
-4. Змініть лістинг 15_1 таким чином, щоб клас String включав перевантажений оператор виведення (>>).
+4. Р—РјС–РЅС–С‚СЊ Р»С–СЃС‚РёРЅРі 15_1 С‚Р°РєРёРј С‡РёРЅРѕРј, С‰РѕР± РєР»Р°СЃ String РІРєР»СЋС‡Р°РІ РїРµСЂРµРІР°РЅС‚Р°Р¶РµРЅРёР№ РѕРїРµСЂР°С‚РѕСЂ РІРёРІРµРґРµРЅРЅСЏ (>>).
 */
 
 #include <iostream>
@@ -10,41 +10,41 @@ using namespace std;
 class String
 {
 public:
-    // конструктори
+    // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂРё
     String();
     String(const char* const);
     String(const String&);
     ~String();
-    // Перевантажені оператори
+    // РџРµСЂРµРІР°РЅС‚Р°Р¶РµРЅС– РѕРїРµСЂР°С‚РѕСЂРё
     char& operator[](int offset);
     char operator[](int offset) const;
     String operator+(const String&);
     void operator+=(const String&);
     String& operator=(const String&);
     friend std::istream& operator>>(std::istream& in, String& other);
-    // Загальні методи доступу
+    // Р—Р°РіР°Р»СЊРЅС– РјРµС‚РѕРґРё РґРѕСЃС‚СѓРїСѓ
     int GetLen() const { return itsLen; }
     const char* GetString() const { return itsString; }
-    // Статичний цілочисельний лічильник ConstructorCount;
+    // РЎС‚Р°С‚РёС‡РЅРёР№ С†С–Р»РѕС‡РёСЃРµР»СЊРЅРёР№ Р»С–С‡РёР»СЊРЅРёРє ConstructorCount;
 private:
-    String(int); // закритий конструктор
+    String(int); // Р·Р°РєСЂРёС‚РёР№ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
     char* itsString;
     unsigned short itsLen;
 };
 
-// конструктор класу String за замовчуванням створює рядок завдовжки 0 байт
+// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСѓ String Р·Р° Р·Р°РјРѕРІС‡СѓРІР°РЅРЅСЏРј СЃС‚РІРѕСЂСЋС” СЂСЏРґРѕРє Р·Р°РІРґРѕРІР¶РєРё 0 Р±Р°Р№С‚
 String::String()
 {
     itsString = new char[1];
     itsString[0] = '\0';
     itsLen = 0;
-    // cout «"I tDefault string constructorl n";
+    // cout В«"I tDefault string constructorl n";
     // ConstructorCount++;
 }
 
-// закритий конструктор, який використовується тільки
-// методами класу до створення нового рядка
-// Вказаного розміру, заповненого нулями
+// Р·Р°РєСЂРёС‚РёР№ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ, СЏРєРёР№ РІРёРєРѕСЂРёСЃС‚РѕРІСѓС”С‚СЊСЃСЏ С‚С–Р»СЊРєРё
+// РјРµС‚РѕРґР°РјРё РєР»Р°СЃСѓ РґРѕ СЃС‚РІРѕСЂРµРЅРЅСЏ РЅРѕРІРѕРіРѕ СЂСЏРґРєР°
+// Р’РєР°Р·Р°РЅРѕРіРѕ СЂРѕР·РјС–СЂСѓ, Р·Р°РїРѕРІРЅРµРЅРѕРіРѕ РЅСѓР»СЏРјРё
 String::String(int len)
 {
     itsString = new char[len + 1];
@@ -55,7 +55,7 @@ String::String(int len)
     // ConstructorCount++;
 }
 
-// Перетворює масив символів у рядок
+// РџРµСЂРµС‚РІРѕСЂСЋС” РјР°СЃРёРІ СЃРёРјРІРѕР»С–РІ Сѓ СЂСЏРґРѕРє
 String::String(const char* const cString)
 {
     itsLen = strlen(cString);
@@ -67,7 +67,7 @@ String::String(const char* const cString)
     // ConstructorCount++;
 }
 
-// Конструктор-копіювальник
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ-РєРѕРїС–СЋРІР°Р»СЊРЅРёРє
 String::String(const String& rhs)
 {
     itsLen = rhs.GetLen();
@@ -79,7 +79,7 @@ String::String(const String& rhs)
     // ConstructorCount++;
 }
 
-// Деструктор звільняє зайняту пам'ять
+// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ Р·РІС–Р»СЊРЅСЏС” Р·Р°Р№РЅСЏС‚Сѓ РїР°Рј'СЏС‚СЊ
 String::~String()
 {
     delete[] itsString;
@@ -87,8 +87,8 @@ String::~String()
     // cout <<"\tString destructor\n";
 }
 
-// Цей оператор звільняє пам'ять, та був
-// копіює рядок і розмір
+// Р¦РµР№ РѕРїРµСЂР°С‚РѕСЂ Р·РІС–Р»СЊРЅСЏС” РїР°Рј'СЏС‚СЊ, С‚Р° Р±СѓРІ
+// РєРѕРїС–СЋС” СЂСЏРґРѕРє С– СЂРѕР·РјС–СЂ
 String& String::operator=(const String& rhs)
 {
     if (this == &rhs)
@@ -103,9 +103,9 @@ String& String::operator=(const String& rhs)
     // cout <<"\tString operator=\n";
 }
 
-// Неконстантний оператор індексування.
-// Повертає посилання символ, який можна
-// Змінити
+// РќРµРєРѕРЅСЃС‚Р°РЅС‚РЅРёР№ РѕРїРµСЂР°С‚РѕСЂ С–РЅРґРµРєСЃСѓРІР°РЅРЅСЏ.
+// РџРѕРІРµСЂС‚Р°С” РїРѕСЃРёР»Р°РЅРЅСЏ СЃРёРјРІРѕР», СЏРєРёР№ РјРѕР¶РЅР°
+// Р—РјС–РЅРёС‚Рё
 char& String::operator[](int offset)
 {
     if (offset > itsLen)
@@ -114,8 +114,8 @@ char& String::operator[](int offset)
         return itsString[offset];
 }
 
-// Константний оператор індексування,
-// використовується для константних об'єктів (див. конструктор-копіювальник! )
+// РљРѕРЅСЃС‚Р°РЅС‚РЅРёР№ РѕРїРµСЂР°С‚РѕСЂ С–РЅРґРµРєСЃСѓРІР°РЅРЅСЏ,
+// РІРёРєРѕСЂРёСЃС‚РѕРІСѓС”С‚СЊСЃСЏ РґР»СЏ РєРѕРЅСЃС‚Р°РЅС‚РЅРёС… РѕР±'С”РєС‚С–РІ (РґРёРІ. РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ-РєРѕРїС–СЋРІР°Р»СЊРЅРёРє! )
 char String::operator[](int offset) const
 {
     if (offset > itsLen)
@@ -124,8 +124,8 @@ char String::operator[](int offset) const
         return itsString[offset];
 }
 
-// створює новий рядок, додаючи поточний
-// Рядок до rhs
+// СЃС‚РІРѕСЂСЋС” РЅРѕРІРёР№ СЂСЏРґРѕРє, РґРѕРґР°СЋС‡Рё РїРѕС‚РѕС‡РЅРёР№
+// Р СЏРґРѕРє РґРѕ rhs
 String String::operator+(const String& rhs)
 {
     int totalLen = itsLen + rhs.GetLen();
@@ -139,7 +139,7 @@ String String::operator+(const String& rhs)
     return temp;
 }
 
-// змінює поточний рядок, нічого не повертаючи
+// Р·РјС–РЅСЋС” РїРѕС‚РѕС‡РЅРёР№ СЂСЏРґРѕРє, РЅС–С‡РѕРіРѕ РЅРµ РїРѕРІРµСЂС‚Р°СЋС‡Рё
 void String::operator+=(const String& rhs)
 {
     unsigned short rhsLen = rhs.GetLen();
@@ -154,15 +154,15 @@ void String::operator+=(const String& rhs)
     *this = temp;
 }
 
-// перевантажений оператор виведення (>>)
-std::istream& operator>>(std::istream& in, String& other) //тут убераємо конст бо будемо вводить данні
+// РїРµСЂРµРІР°РЅС‚Р°Р¶РµРЅРёР№ РѕРїРµСЂР°С‚РѕСЂ РІРёРІРµРґРµРЅРЅСЏ (>>)
+std::istream& operator>>(std::istream& in, String& other) //С‚СѓС‚ СѓР±РµСЂР°С”РјРѕ РєРѕРЅСЃС‚ Р±Рѕ Р±СѓРґРµРјРѕ РІРІРѕРґРёС‚СЊ РґР°РЅРЅС–
 {
-    // Припустимо, що BoundedAray зберігає числа у вигляді рядка або масиву цифр
+    // РџСЂРёРїСѓСЃС‚РёРјРѕ, С‰Рѕ BoundedAray Р·Р±РµСЂС–РіР°С” С‡РёСЃР»Р° Сѓ РІРёРіР»СЏРґС– СЂСЏРґРєР° Р°Р±Рѕ РјР°СЃРёРІСѓ С†РёС„СЂ
     for (size_t i = 0; i < other.itsLen; ++i)
     {
-        in >> other.itsString[i]; // Введення кожного елемента масиву
+        in >> other.itsString[i]; // Р’РІРµРґРµРЅРЅСЏ РєРѕР¶РЅРѕРіРѕ РµР»РµРјРµРЅС‚Р° РјР°СЃРёРІСѓ
     }
-    return in; // Повернення посилання на потік для ланцюжкового введення
+    return in; // РџРѕРІРµСЂРЅРµРЅРЅСЏ РїРѕСЃРёР»Р°РЅРЅСЏ РЅР° РїРѕС‚С–Рє РґР»СЏ Р»Р°РЅС†СЋР¶РєРѕРІРѕРіРѕ РІРІРµРґРµРЅРЅСЏ
 }
 
 // int String: ConstructorCount = 0;
