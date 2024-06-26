@@ -1,5 +1,5 @@
 /*
-	3. Опишіть клас Set, який виконується в межах масиву BoundedAray.
+	3. РћРїРёС€С–С‚СЊ РєР»Р°СЃ Set, СЏРєРёР№ РІРёРєРѕРЅСѓС”С‚СЊСЃСЏ РІ РјРµР¶Р°С… РјР°СЃРёРІСѓ BoundedAray.
 */
 #include <iostream>
 #include <cstdlib>
@@ -15,16 +15,16 @@ public:
 	BoundedAray(size_t size);               //Construction
 	BoundedAray(const BoundedAray& other);  //Copy construction
 	BoundedAray(BoundedAray&& other);       //Move constructor 
-	~BoundedAray();							//Destrucrtor 
+	~BoundedAray();				//Destrucrtor 
 
-	size_t GetSize()const { return size_; }					//Field access "size"
+	size_t GetSize()const { return size_; }			//Field access "size"
 	const int* GetArr()const { return arr_ ? arr_ : 0; };	//Field access "arr"
 
-	BoundedAray operator[] (size_t index) { return arr_[size_]; };			 // []
+	BoundedAray operator[] (size_t index) { return arr_[size_]; };		 // []
 	const BoundedAray operator[] (size_t index)const { return arr_[size_]; } //Const []
 
 	BoundedAray operator=(const BoundedAray& other);//Copy =
-	BoundedAray operator=(BoundedAray&& other);		//Move =
+	BoundedAray operator=(BoundedAray&& other);	//Move =
 	friend std::ostream& operator<<(std::ostream& out, const BoundedAray& other);
 	friend std::istream& operator>>(std::istream& in, BoundedAray& other);
 
@@ -89,24 +89,24 @@ BoundedAray BoundedAray::operator=(BoundedAray&& other)
 	}
 	return *this;
 }
-//для виводу
+//РґР»СЏ РІРёРІРѕРґСѓ
 std::ostream& operator<<(std::ostream& out, const BoundedAray& other) {
-	// Припустимо, що BoundedAray зберігає числа у вигляді рядка або масиву цифр
+	// РџСЂРёРїСѓСЃС‚РёРјРѕ, С‰Рѕ BoundedAray Р·Р±РµСЂС–РіР°С” С‡РёСЃР»Р° Сѓ РІРёРіР»СЏРґС– СЂСЏРґРєР° Р°Р±Рѕ РјР°СЃРёРІСѓ С†РёС„СЂ
 	for (size_t i = 0; i < other.size_; ++i) {
-		out << other.arr_[i]; // Виведення кожного елемента масиву
+		out << other.arr_[i]; // Р’РёРІРµРґРµРЅРЅСЏ РєРѕР¶РЅРѕРіРѕ РµР»РµРјРµРЅС‚Р° РјР°СЃРёРІСѓ
 	}
-	return out; // Повернення посилання на потік для ланцюжкового виведення
+	return out; // РџРѕРІРµСЂРЅРµРЅРЅСЏ РїРѕСЃРёР»Р°РЅРЅСЏ РЅР° РїРѕС‚С–Рє РґР»СЏ Р»Р°РЅС†СЋР¶РєРѕРІРѕРіРѕ РІРёРІРµРґРµРЅРЅСЏ
 }
 
-//для вводу 
-std::istream& operator>>(std::istream& in, BoundedAray& other) //тут убераємо конст бо будемо вводить данні
+//РґР»СЏ РІРІРѕРґСѓ 
+std::istream& operator>>(std::istream& in, BoundedAray& other) //С‚СѓС‚ СѓР±РµСЂР°С”РјРѕ РєРѕРЅСЃС‚ Р±Рѕ Р±СѓРґРµРјРѕ РІРІРѕРґРёС‚СЊ РґР°РЅРЅС–
 {
-	// Припустимо, що BoundedAray зберігає числа у вигляді рядка або масиву цифр
+	// РџСЂРёРїСѓСЃС‚РёРјРѕ, С‰Рѕ BoundedAray Р·Р±РµСЂС–РіР°С” С‡РёСЃР»Р° Сѓ РІРёРіР»СЏРґС– СЂСЏРґРєР° Р°Р±Рѕ РјР°СЃРёРІСѓ С†РёС„СЂ
 	for (size_t i = 0; i < other.size_; ++i)
 	{
-		in >> other.arr_[i]; // Введення кожного елемента масиву
+		in >> other.arr_[i]; // Р’РІРµРґРµРЅРЅСЏ РєРѕР¶РЅРѕРіРѕ РµР»РµРјРµРЅС‚Р° РјР°СЃРёРІСѓ
 	}
-	return in; // Повернення посилання на потік для ланцюжкового введення
+	return in; // РџРѕРІРµСЂРЅРµРЅРЅСЏ РїРѕСЃРёР»Р°РЅРЅСЏ РЅР° РїРѕС‚С–Рє РґР»СЏ Р»Р°РЅС†СЋР¶РєРѕРІРѕРіРѕ РІРІРµРґРµРЅРЅСЏ
 }
 
 
