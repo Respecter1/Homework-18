@@ -18,11 +18,11 @@ public:
 	size_t GetSize()const { return size_; }					//Field access "size"
 	const int* GetArr()const { return arr_ ? arr_ : 0; };	//Field access "arr"
 
-	BoundedAray operator[] (size_t index) { return arr_[size_]; };			 // []
+	BoundedAray operator[] (size_t index) { return arr_[size_]; };	         // []
 	const BoundedAray operator[] (size_t index)const { return arr_[size_]; } //Const []
 
 	BoundedAray operator=(const BoundedAray& other);//Copy =
-	BoundedAray operator=(BoundedAray&& other);		//Move =
+	BoundedAray operator=(BoundedAray&& other);	//Move =
 
 };
 
