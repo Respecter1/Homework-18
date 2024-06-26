@@ -1,5 +1,5 @@
 /*
-	7. Жучки: що неправильно у цій програмі?
+	7. Р–СѓС‡РєРё: С‰Рѕ РЅРµРїСЂР°РІРёР»СЊРЅРѕ Сѓ С†С–Р№ РїСЂРѕРіСЂР°РјС–?
 */
 
 #include <iostream>
@@ -7,15 +7,15 @@
 
 using namespace std;
 
-class Animal;//тут є сенс, для наших марних прототипів функцій
+class Animal;//С‚СѓС‚ С” СЃРµРЅСЃ, РґР»СЏ РЅР°С€РёС… РјР°СЂРЅРёС… РїСЂРѕС‚РѕС‚РёРїС–РІ С„СѓРЅРєС†С–Р№
 
-void setValue(Animal&, int);//не знаю навіщо ці прототипи не бачу в них сенсу 
+void setValue(Animal&, int);//РЅРµ Р·РЅР°СЋ РЅР°РІС–С‰Рѕ С†С– РїСЂРѕС‚РѕС‚РёРїРё РЅРµ Р±Р°С‡Сѓ РІ РЅРёС… СЃРµРЅСЃСѓ 
 
-void setValue(Animal&, int, int);//не знаю навіщо ці прототипи не бачу в них сенсу 
+void setValue(Animal&, int, int);//РЅРµ Р·РЅР°СЋ РЅР°РІС–С‰Рѕ С†С– РїСЂРѕС‚РѕС‚РёРїРё РЅРµ Р±Р°С‡Сѓ РІ РЅРёС… СЃРµРЅСЃСѓ 
 
 class Animal
 {
-	friend void setValue(Animal&, int);//і яби цю функцію в классі писав вона дуже коротка 
+	friend void setValue(Animal&, int);//С– СЏР±Рё С†СЋ С„СѓРЅРєС†С–СЋ РІ РєР»Р°СЃСЃС– РїРёСЃР°РІ РІРѕРЅР° РґСѓР¶Рµ РєРѕСЂРѕС‚РєР° 
 
 private:
 	int itsWeight;
@@ -27,7 +27,7 @@ void setValue(Animal& theAnimal, int theWeight)
 	theAnimal.itsWeight = theWeight;
 }
 
-void setValue(Animal& theAnimal, int theWeight, int theAge)// тут не має доступу для наших полів але якщо ми зробимо аналагічно функції яка зверху воно все запрацює 
+void setValue(Animal& theAnimal, int theWeight, int theAge)// С‚СѓС‚ РЅРµ РјР°С” РґРѕСЃС‚СѓРїСѓ РґР»СЏ РЅР°С€РёС… РїРѕР»С–РІ Р°Р»Рµ СЏРєС‰Рѕ РјРё Р·СЂРѕР±РёРјРѕ Р°РЅР°Р»Р°РіС–С‡РЅРѕ С„СѓРЅРєС†С–С— СЏРєР° Р·РІРµСЂС…Сѓ РІРѕРЅРѕ РІСЃРµ Р·Р°РїСЂР°С†СЋС” 
 {
 	theAnimal.itsWeight = theWeight;
 	theAnimal.itsAge = theAge;
